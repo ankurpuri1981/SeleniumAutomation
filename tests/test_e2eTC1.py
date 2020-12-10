@@ -30,6 +30,7 @@ class TestE2E(BaseClass):
         purchase.selectCountry().click() # Select India
         purchase.clickPurchase().click()
         successmsg = self.driver.find_element_by_class_name("alert-success").text
+        print(successmsg)
         assert "Success! Thank you!" in successmsg
         self.driver.get_screenshot_as_file("success.png")
 
