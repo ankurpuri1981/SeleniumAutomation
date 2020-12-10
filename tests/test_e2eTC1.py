@@ -17,6 +17,7 @@ class TestE2E(BaseClass):
             if 'Blackberry' in product.text:
                 checkoutpage.getCardfooter()[n].click()
                 prodName = product.text
+                print(prodName)
             n = n + 1
         # Checkout
         confirmation = Confirmation(self.driver)
