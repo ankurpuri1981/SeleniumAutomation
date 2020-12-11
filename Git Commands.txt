@@ -52,6 +52,10 @@ git push origin master
 Resolve merge conflicts
 When there is a change in master branch, and secnd person makes changes to branch with old master code, tries to merge branch into master, it will give merge conflict error. So, you have to make both version of code same in head and master branches. Clean the file after getting merge conflict error.
 
+git diff shows difference between 2 versions of file
+gi log shows all commit history
+
+To go back to previous version of file - git checkout commit number (You can get from git log command)
 
 
 
