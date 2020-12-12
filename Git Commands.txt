@@ -57,6 +57,31 @@ gi log shows all commit history
 
 To go back to previous version of file - git checkout commit number (You can get from git log command)
 
+add another remote repository
+git remote add azurerepo
+
+rename remote repository
+git remote rename azurerepo Ankurrepo
+
+remove remote
+
+show all remote
+git remote -v
+
+git remote remove azurerepo
+
+to show refs-
+git show-ref
+
+If your upstream branch is not already created, you will need to create it by running the “git push” command with the “-u” option for upstream
+created a new branch localgit on local and azure repo
+pulled data from azurerepo 
+git pull azurerepo localgit
+Pushed data back to azurerepo
+git push azurerepo localgit
+So now my github is linked to azurerepo on it's master and develop branch
+my local git master and develop branches are in sync with github
+my local git localgit branch is in sync with azure repo localgit branch
 
 
 
