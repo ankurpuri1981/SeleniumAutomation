@@ -91,6 +91,8 @@ to exit git bash log console, type q
 to show diagramtic log for commits
 git log --graph
 
+This is change for master branch, in parallel to localgit branch change
+
 
 
 
