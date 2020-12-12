@@ -5,6 +5,7 @@ from PageObjects.homepage import HomePage
 from PageObjects.purchase import Purchase
 from tests.conftest import setup
 from utilities.BaseClass import BaseClass
+from selenium.webdriver.support import wait
 
 class TestE2E(BaseClass):
     def test_e2e(self):
