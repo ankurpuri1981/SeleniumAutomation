@@ -91,8 +91,7 @@ to exit git bash log console, type q
 to show diagramatic commit log
 git log --graph
 
-to push branch changes along with master changes done by someone else, first pull from remote repository into branch locally, and then push back from local  
-
+to push branch changes along with master changes done by someone else, first pull from remote repository into branch locally, and then push back from local 
 
 
 
