@@ -83,6 +83,9 @@ So now my github is linked to azurerepo on it's master and develop branch
 my local git master and develop branches are in sync with github
 my local git localgit branch is in sync with azure repo localgit branch
 
+then I checkout to master branch and merged localgit with master
+then pushed master changs to github remote :) All in sync
+
 
 
 
