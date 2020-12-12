@@ -105,7 +105,19 @@ choose branch policy setting for controlling push and enabling pull requests in 
 
 change in azure repos directly you can pull it in git via pull request
 
+to ignor a file from version control, use
+echo file1.txt >> .gitignore
 
+Git-flow can be used to create mutiple branches for release management
 
+Other git commands
+Other git commands
+Here are some of the other git commands that are important from an exam perspective
+1. Git gc command - This is a command that is used for maintenance purposes. The gc command is a garbage collection command and is used to clean up the git repository.
+If you also use the --aggressive flag along with the command, it will also try to save more disk space after the completion.
+Below is an example output from the command
 
-
+2. git prune command - This command is used to clean up unreachable or orphaned objects. So you can run the git prune command after the git gc command
+For more information on these commands, you can go to the following links
+https://git-scm.com/docs/git-gc
+https://git-scm.com/docs/git-prune
