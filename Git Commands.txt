@@ -105,7 +105,10 @@ choose branch policy setting for controlling push and enabling pull requests in 
 
 change in azure repos directly you can pull it in git via pull request
 
+to ignor a file from version control, use
+echo file1.txt >> .gitignore
 
+Git-flow can be used to create mutiple branches for release management
 
 
 
