@@ -32,6 +32,7 @@ class TestE2E(BaseClass):
         successmsg = self.driver.find_element_by_class_name("alert-success").text
         print(successmsg)
         assert "Success! Thank you!" in successmsg
+        #Trying to push changes to local git
         self.driver.get_screenshot_as_file("success.png")
 
 
