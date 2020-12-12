@@ -86,6 +86,8 @@ my local git localgit branch is in sync with azure repo localgit branch
 then I checkout to master branch and merged localgit with master
 then pushed master changs to github remote :) All in sync
 
+to exit git bash log console, type q
+
 
 
 
