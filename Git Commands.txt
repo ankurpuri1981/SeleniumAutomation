@@ -95,6 +95,9 @@ to push branch changes along with master changes done by someone else, first pul
 
 to resolve conflicts, make both files content same, adding changes in both, master and branch and then commit. Or make master same as branch. then push to azure repo or github repo
 
+squash merge can be used to not include commit history for branches into master branch
+git merge --squash localgit
+
 
 
 
