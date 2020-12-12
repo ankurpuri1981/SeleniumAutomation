@@ -98,6 +98,10 @@ to resolve conflicts, make both files content same, adding changes in both, mast
 squash merge can be used to not include commit history for branches into master branch
 git merge --squash localgit
 
+to push everything to azure
+git push origin -all azurerepo
+
+choose branch policy setting for controlling push and enabling pull requests in azure repo or github. changing again
 
 
 
