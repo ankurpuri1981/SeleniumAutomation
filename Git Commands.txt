@@ -1,4 +1,4 @@
-git config --global user.name "Ankur Puri"
+﻿git config --global user.name "Ankur Puri"
 git config --global user.email "ankur.puri@cognizant.com"
 go to directory --> git init
 
@@ -94,6 +94,7 @@ git log --graph
 to push branch changes along with master changes done by someone else, first pull from remote repository into branch locally, and then push back from local 
 
 to resolve conflicts, make both files content same, adding changes in both, master and branch and then commit. Or make master same as branch. then push to azure repo or github repo
+
 
 
 
