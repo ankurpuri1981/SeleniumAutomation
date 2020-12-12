@@ -88,6 +88,9 @@ then pushed master changs to github remote :) All in sync
 
 to exit git bash log console, type q
 
+to show diagramtic log for commits
+git log --graph
+
 
 
 
