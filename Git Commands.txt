@@ -73,7 +73,7 @@ git remote remove azurerepo
 to show refs-
 git show-ref
 
-If your upstream branch is not already created, you will need to create it by running the ìgit pushî command with the ì-uî option for upstream
+If your upstream branch is not already created, you will need to create it by running the ‚Äúgit push‚Äù command with the ‚Äú-u‚Äù option for upstream
 created a new branch localgit on local and azure repo
 pulled data from azurerepo 
 git pull azurerepo localgit
@@ -92,6 +92,8 @@ to show diagramatic commit log
 git log --graph
 
 to push branch changes along with master changes done by someone else, first pull from remote repository into branch locally, and then push back from local 
+
+to resolve conflicts, make both files content same, adding changes in both, master and branch and then commit. Or make master same as branch. then push to azure repo or github repo
 
 
 
