@@ -105,7 +105,7 @@ choose branch policy setting for controlling push and enabling pull requests in 
 
 change in azure repos directly you can pull it in git via pull request
 
-Checking for Azure Repos integration with github
+Checking for Azure Repos integration with github 
 
 
 
