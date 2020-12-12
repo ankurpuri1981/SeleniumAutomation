@@ -103,7 +103,7 @@ git push origin -all azurerepo
 
 choose branch policy setting for controlling push and enabling pull requests in azure repo or github. changing again
 
-change in azure repos directly and you can pull it in github via pull request
+change in azure repos directly you can pull it in git via pull request
 
 
 
