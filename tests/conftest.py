@@ -60,16 +60,29 @@ def setup(request):
         driver = webdriver.Firefox(
             executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
         driver.implicitly_wait(10)
+    
+    elif browser_name == "None":
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--start-maximized")
+        driver = webdriver.Chrome(
+            executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
+                            'chromedriver.exe', options=chrome_options)
+        driver.implicitly_wait(10)
 
     # Invoke the browser and maximize
     if driver == "None":
-        driver=webdriver.Chrome(
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--start-maximized")
+        driver = webdriver.Chrome(
             executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
                             'chromedriver.exe', options=chrome_options)
+        driver.implicitly_wait(10)
+    
     driver.get('https://rahulshettyacademy.com/angularpractice/')
     driver.maximize_window()
     request.cls.driver = driver
-
+    return driver
+    
     yield
     driver.close()
 
