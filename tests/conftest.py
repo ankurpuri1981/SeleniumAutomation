@@ -64,7 +64,7 @@ def setup(request):
         copyfile('chromedriver.exe', str(os.path.dirname(sys.executable))+ "\\chromedriver.exe")
     except:
         print("error while copying chromedriver to Python folder")
-    if platform.system() == 'Windows':
+    if platform.system() == 'Linux':
         if browser_name == "chrome":
             chrome_options = webdriver.ChromeOptions() # I kept chromedriver.exe in path \\Python38\\Scripts
             chrome_options.add_argument("--start-maximized")
@@ -76,6 +76,58 @@ def setup(request):
             driver.maximize_window()
             request.cls.driver = driver
 
+
+        elif browser_name == "firefox":
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.add_argument("--start-maximized")
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')  # overcome limited resource problems
+            driver = webdriver.Firefox(executable_path='./geckodriver', chrome_options=chrome_options)
+            # executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
+            driver.implicitly_wait(10)
+            driver.get('https://rahulshettyacademy.com/angularpractice/')
+            driver.maximize_window()
+            request.cls.driver = driver
+
+
+        elif browser_name == "None":
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.add_argument("--start-maximized")
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')  # overcome limited resource problems
+            driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
+            # executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
+            #                'chromedriver.exe', options=chrome_options)
+            driver.implicitly_wait(10)
+            driver.get('https://rahulshettyacademy.com/angularpractice/')
+            driver.maximize_window()
+            request.cls.driver = driver
+
+        elif browser_name == "None":
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.add_argument("--start-maximized")
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')  # overcome limited resource problems
+            driver = webdriver.Chrome(
+                executable_path='./chromedriver', options=chrome_options)
+            # executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
+            driver.implicitly_wait(10)
+            # Invoke the browser and maximize
+            driver.get('https://rahulshettyacademy.com/angularpractice/')
+            driver.maximize_window()
+            request.cls.driver = driver
+    
+    elif platform.system() == 'Windows':
+        if browser_name == "chrome":
+            chrome_options = webdriver.ChromeOptions() # I kept chromedriver.exe in path \\Python38\\Scripts
+            chrome_options.add_argument("--start-maximized")
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')  # overcome limited resource problems
+            driver = webdriver.Chrome(options=chrome_options)
+            driver.implicitly_wait(10)
+            driver.get('https://rahulshettyacademy.com/angularpractice/')
+            driver.maximize_window()
+            request.cls.driver = driver
 
         elif browser_name == "firefox":
             chrome_options = webdriver.ChromeOptions()
