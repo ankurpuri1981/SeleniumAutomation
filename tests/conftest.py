@@ -58,6 +58,8 @@ def pytest_addoption(parser):
 def setup(request):
     global driver
     browser_name = request.config.getoption("--browserName")  # give input for browser as py.test --browserName firefox
+    from shutil import copyfile
+    copyfile('chromedriver.exe', str(os.path.dirname(sys.executable))+ "\\chromedriver.exe")
     if platform.system() == 'Windows':
         if browser_name == "chrome":
             chrome_options = webdriver.ChromeOptions() # I kept chromedriver.exe in path \\Python38\\Scripts
