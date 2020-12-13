@@ -24,11 +24,7 @@ steps:
     pip install selenium
     pip install openpyxl
     pip install chromedriver
-    import os
-    import sys
-    os.chdir("..")
-    from shutil import copyfile
-    copyfile('chromedriver.exe', str(os.path.dirname(sys.executable))+ "\\chromedriver.exe")
+    
   displayName: 'Install dependencies'
 
 - script: |
