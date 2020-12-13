@@ -1,10 +1,11 @@
 import pytest
 import time
 from selenium import webdriver
+import os
 from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.firefox.webdriver import WebDriver
-import pyautogui
+#import pyautogui
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.common.by import By
@@ -36,6 +37,10 @@ def pytest_runtest_makereport(item):
         report.extra = extra
 
 def _capture_screenshot(name):
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--start-maximized")
+    driver = webdriver.Chrome(executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
+                            'chromedriver.exe', options=chrome_options)
     driver.get_screenshot_as_file(name)
 
 
@@ -61,11 +66,17 @@ def setup(request):
             executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
         driver.implicitly_wait(10)
 
+    elif browser_name == "None":
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--start-maximized")
+        driver = webdriver.Chrome(
+            executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
+        driver.implicitly_wait(10)
+
     # Invoke the browser and maximize
-    if driver == "None":
-        driver=webdriver.Chrome(
-            executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
-                            'chromedriver.exe', options=chrome_options)
+
+        driver.implicitly_wait(10)
+
     driver.get('https://rahulshettyacademy.com/angularpractice/')
     driver.maximize_window()
     request.cls.driver = driver
