@@ -1,5 +1,5 @@
 import selenium
-import pytest-xvfb
+import pytest
 import time
 from selenium import webdriver
 import os
