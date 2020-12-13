@@ -30,8 +30,6 @@ steps:
 
 - script: |
     pip install selenium
-    pip install mss
-    pip install pyautogui
     pip install pytest pytest-azurepipelines
     pytest -v -s
   displayName: 'pytest'
