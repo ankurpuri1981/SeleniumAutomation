@@ -29,5 +29,5 @@ steps:
 
 - script: |
     pip install pytest pytest-azurepipelines
-    pytest
+    pytest --html=reportWindows.html
   displayName: 'pytest'
