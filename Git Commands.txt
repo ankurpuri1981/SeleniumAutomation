@@ -121,3 +121,5 @@ Below is an example output from the command
 For more information on these commands, you can go to the following links
 https://git-scm.com/docs/git-gc
 https://git-scm.com/docs/git-prune
+
+git fetch is similar to pull but doesn't merge. i.e. it fetches remote updates ( refs and objects ) but your local stays the same (i.e. origin/master gets updated but master stays the same) . git pull pulls down from a remote and instantly merges
