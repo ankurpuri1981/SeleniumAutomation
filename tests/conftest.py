@@ -41,6 +41,7 @@ def pytest_runtest_makereport(item):
 def _capture_screenshot(name):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(options=chrome_options)
         #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
         #                    'chromedriver.exe', options=chrome_options)
@@ -59,6 +60,7 @@ def setup(request):
     if browser_name == "chrome":
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
+        chrome_options.add_argument('--no-sandbox')
         driver = webdriver.Chrome(options=chrome_options)
         driver.implicitly_wait(10)
 
@@ -70,6 +72,7 @@ def setup(request):
     elif browser_name == "None":
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
+        chrome_options.add_argument('--no-sandbox')
         driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
             #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
             #                'chromedriver.exe', options=chrome_options)
@@ -78,6 +81,7 @@ def setup(request):
     elif browser_name == "None":
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
+        chrome_options.add_argument('--no-sandbox')
         driver = webdriver.Chrome(
             executable_path='./chromedriver', options=chrome_options)
             #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
