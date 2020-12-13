@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.firefox.webdriver import WebDriver
+from mss import mss
 import pyautogui
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
