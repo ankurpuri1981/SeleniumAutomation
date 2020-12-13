@@ -24,10 +24,11 @@ steps:
     pip install selenium
     pip install openpyxl
     pip install chromedriver
+    pip install pytest pytest-azurepipelines
+    pip install pytest-html
     
   displayName: 'Install dependencies'
 
 - script: |
-    pip install pytest pytest-azurepipelines
-    pytest --html=reportWindows.html
+    pytest --html=report.html
   displayName: 'pytest'
