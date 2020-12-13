@@ -17,26 +17,41 @@ driver = None
 
 # Include screenshot for failed TC's in the report
 @pytest.mark.hookwrapper
-def pytest_runtest_makereport(item):
-    """
-        Extends the PyTest Plugin to take and embed screenshot in html report, whenever test fails.
-        :param item:
-        """
-    pytest_html = item.config.pluginmanager.getplugin('html')
-    outcome = yield
-    report = outcome.get_result()
+def pytest_runtest_makereport(__multicall__, item):
+    report = __multicall__.execute()
     extra = getattr(report, 'extra', [])
-
-    if report.when == 'call' or report.when == "setup":
+    if report.when == 'call':
         xfail = hasattr(report, 'wasxfail')
         if (report.skipped and xfail) or (report.failed and not xfail):
-            file_name = report.nodeid.replace("::", "_") + ".png"
-            _capture_screenshot(file_name)
-            if file_name:
-                html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
-                       'onclick="window.open(this.src)" align="right"/></div>' % file_name
-                extra.append(pytest_html.extras.html(html))
+            url = TestSetup.selenium.current_url
+            report.extra.append(extras.url(url))
+            screenshot = TestSetup.selenium.get_screenshot_as_base64()
+            report.extra.append(extras.image(screenshot, 'Screenshot'))
+            html = TestSetup.selenium.page_source.encode('utf-8')
+            report.extra.append(extra.text(html, 'HTML'))
+            report.extra.append(extra.html(html.div('Additional HTML')))
         report.extra = extra
+    return report
+# def pytest_runtest_makereport(item):
+#     """
+#         Extends the PyTest Plugin to take and embed screenshot in html report, whenever test fails.
+#         :param item:
+#         """
+#     pytest_html = item.config.pluginmanager.getplugin('html')
+#     outcome = yield
+#     report = outcome.get_result()
+#     extra = getattr(report, 'extra', [])
+
+#     if report.when == 'call' or report.when == "setup":
+#         xfail = hasattr(report, 'wasxfail')
+#         if (report.skipped and xfail) or (report.failed and not xfail):
+#             file_name = report.nodeid.replace("::", "_") + ".png"
+#             _capture_screenshot(file_name)
+#             if file_name:
+#                 html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
+#                        'onclick="window.open(this.src)" align="right"/></div>' % file_name
+#                 extra.append(pytest_html.extras.html(html))
+#         report.extra = extra
 
 def _capture_screenshot(name):
     chrome_options = webdriver.ChromeOptions()
