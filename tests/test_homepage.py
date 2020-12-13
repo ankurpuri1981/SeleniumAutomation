@@ -33,7 +33,7 @@ class Test_HomePageVerify(BaseClass):
 
     # @pytest.fixture(params=[("Ankur","Puri","09/10/1982"),("Ayansh","Puri","26/06/2013")]) #To run test with multiple datasets
     os.chdir("..")
-    datafile = os.getcwd() + "\\TestData\\testData.xlsx"
+    datafile = os.getcwd() + "/TestData/testData.xlsx"
 
     homepagedata = HomePageData(datafile)
     @pytest.fixture(params=homepagedata.read_Datafromexcel())
