@@ -34,7 +34,7 @@ class TestE2E(BaseClass):
         print(successmsg)
         assert "Success! Thank you!" in successmsg
         #Trying to push changes to local git
-        self.driver.get_screenshot_as_file("success.png")
+        #self.driver.get_screenshot_as_file("success.png")
 
 
 
