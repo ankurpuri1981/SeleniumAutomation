@@ -30,7 +30,7 @@ steps:
 
 - script: |
     pip install selenium
-    pip install pytest-xvfb pytest-azurepipelines
+    pip install pytest pytest-xvfb pytest-azurepipelines
     pip install openpyxl
     pip install chromedriver-py
     pytest -v -s
