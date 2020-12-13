@@ -42,7 +42,7 @@ def _capture_screenshot(name):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--start-maximized")
     chrome_options.add_argument('--no-sandbox')
-    chrome_options.addArguments("--disable-dev-shm-usage") # overcome limited resource problems
+    chrome_options.add_argument('--disable-dev-shm-usage') # overcome limited resource problems
     driver = webdriver.Chrome(options=chrome_options)
         #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
         #                    'chromedriver.exe', options=chrome_options)
@@ -62,7 +62,7 @@ def setup(request):
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
         chrome_options.add_argument('--no-sandbox')
-        chrome_options.addArguments("--disable-dev-shm-usage") # overcome limited resource problems
+        chrome_options.add_argument('--disable-dev-shm-usage') # overcome limited resource problems
         driver = webdriver.Chrome(options=chrome_options)
         driver.implicitly_wait(10)
 
@@ -75,7 +75,7 @@ def setup(request):
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
         chrome_options.add_argument('--no-sandbox')
-        chrome_options.addArguments("--disable-dev-shm-usage") # overcome limited resource problems
+        chrome_options.add_argument('--disable-dev-shm-usage') # overcome limited resource problems
         driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
             #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
             #                'chromedriver.exe', options=chrome_options)
@@ -85,7 +85,7 @@ def setup(request):
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
         chrome_options.add_argument('--no-sandbox')
-        chrome_options.addArguments("--disable-dev-shm-usage") # overcome limited resource problems
+        chrome_options.add_argument('--disable-dev-shm-usage') # overcome limited resource problems
         driver = webdriver.Chrome(
             executable_path='./chromedriver', options=chrome_options)
             #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
