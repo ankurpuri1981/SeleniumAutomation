@@ -33,5 +33,11 @@ steps:
     pip install pytest pytest-xvfb pytest-azurepipelines
     pip install openpyxl
     pip install chromedriver
+    import os
+    import sys
+    os.chdir("..")
+    from shutil import copyfile
+    copyfile('chromedriver.exe', str(os.path.dirname(sys.executable))+ "\\chromedriver.exe")
+
     pytest -v -s
   displayName: 'pytest'
