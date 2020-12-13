@@ -39,8 +39,9 @@ def pytest_runtest_makereport(item):
 def _capture_screenshot(name):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--start-maximized")
-    driver = webdriver.Chrome(executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
-                            'chromedriver.exe', options=chrome_options)
+    driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
+        #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
+        #                    'chromedriver.exe', options=chrome_options)
     driver.get_screenshot_as_file(name)
 
 
@@ -56,29 +57,28 @@ def setup(request):
     if browser_name == "chrome":
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
-        driver = webdriver.Chrome(
-            executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
-                            'chromedriver.exe', options=chrome_options)
+        driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
         driver.implicitly_wait(10)
 
     elif browser_name == "firefox":
-        driver = webdriver.Firefox(
-            executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
+        driver = webdriver.Firefox(executable_path='./geckodriver',chrome_options=chrome_options)
+            #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
         driver.implicitly_wait(10)
     
     elif browser_name == "None":
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
-        driver = webdriver.Chrome(
-            executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
-                            'chromedriver.exe', options=chrome_options)
+        driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
+            #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
+            #                'chromedriver.exe', options=chrome_options)
         driver.implicitly_wait(10)
 
     elif browser_name == "None":
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
         driver = webdriver.Chrome(
-            executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
+            executable_path='./chromedriver', options=chrome_options)
+            #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
         driver.implicitly_wait(10)
 
     # Invoke the browser and maximize
