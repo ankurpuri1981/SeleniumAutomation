@@ -1,6 +1,6 @@
 import pytest
 from PageObjects.homepage import HomePage
-from TestData.HomePageData import HomePageData
+from TestData.test_HomePageData import HomePageData
 from utilities.BaseClass import BaseClass
 
 
