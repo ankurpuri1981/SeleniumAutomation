@@ -41,7 +41,7 @@ def pytest_runtest_makereport(item):
 def _capture_screenshot(name):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--start-maximized")
-    driver = webdriver.Chrome(executable_path=binary_path, options=chrome_options)
+    driver = webdriver.Chrome(options=chrome_options)
         #executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
         #                    'chromedriver.exe', options=chrome_options)
     driver.get_screenshot_as_file(name)
@@ -59,7 +59,7 @@ def setup(request):
     if browser_name == "chrome":
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--start-maximized")
-        driver = webdriver.Chrome(executable_path=binary_path, options=chrome_options)
+        driver = webdriver.Chrome(options=chrome_options)
         driver.implicitly_wait(10)
 
     elif browser_name == "firefox":
