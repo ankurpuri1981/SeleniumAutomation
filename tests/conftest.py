@@ -85,8 +85,7 @@ def setup(request):
     driver.get('https://rahulshettyacademy.com/angularpractice/')
     driver.maximize_window()
     request.cls.driver = driver
-    return driver
-    
+       
     yield
     driver.close()
 
