@@ -31,7 +31,7 @@ class Test_HomePageVerify(BaseClass):
         self.driver.refresh()  # Refresh the page for clearing fields for next run
 
     # @pytest.fixture(params=[("Ankur","Puri","09/10/1982"),("Ayansh","Puri","26/06/2013")]) #To run test with multiple datasets
-    datafile = "C:\\Users\\153841\\PycharmProjects\\pythonSelFramework\\TestData\\testData.xlsx"
+    datafile = 'testData.xlsx'
 
     homepagedata = HomePageData(datafile)
     @pytest.fixture(params=homepagedata.read_Datafromexcel())
