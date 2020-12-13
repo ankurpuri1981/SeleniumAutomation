@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 strategy:
   matrix:
     Python38:
@@ -20,7 +20,7 @@ steps:
   displayName: 'Use Python $(python.version)'
 
 - script: |
-    sudo apt update
+    #sudo apt update
     sudo apt install software-properties-common
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt install python3.8
