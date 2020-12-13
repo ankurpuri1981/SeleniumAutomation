@@ -31,5 +31,6 @@ steps:
 - script: |
     pip install selenium
     pip install pytest pytest-azurepipelines
+    pip install openpyxl
     pytest -v -s
   displayName: 'pytest'
