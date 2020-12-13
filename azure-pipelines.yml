@@ -32,5 +32,6 @@ steps:
     pip install selenium
     pip install pytest pytest-azurepipelines
     pip install openpyxl
+    pip install chromedriver-py
     pytest -v -s
   displayName: 'pytest'
