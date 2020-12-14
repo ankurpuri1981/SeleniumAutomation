@@ -1,8 +1,6 @@
 import selenium
 import pytest
 import time
-
-
 from selenium import webdriver
 import os
 import sys
@@ -15,7 +13,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 import platform
-import pytest_html
 driver = None
 
 # Include screenshot for failed TC's in the report
