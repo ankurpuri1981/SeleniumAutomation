@@ -1,0 +1,8 @@
+The installer exe or zip file should be kept on D:\vsts-agent-win-x64-2.179.0\_work\_tool, if the agent
+is downloaded and configured on D drive.
+There should be a folder structure like below for python version-
+D:\vsts-agent-win-x64-2.179.0\_work\_tool\Python\3.9.0\x64
+There should be a file named x64.complete in D:\vsts-agent-win-x64-2.179.0\_work\_tool\Python\3.9.0\
+You should install python in the VM and also add below paths in the path environment variable-
+C:\Users\admin123\AppData\Local\Programs\Python\Python39\
+C:\Users\admin123\AppData\Local\Programs\Python\Python39\Scripts\
