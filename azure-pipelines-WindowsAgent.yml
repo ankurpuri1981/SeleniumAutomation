@@ -7,8 +7,9 @@ trigger:
 - main
 
 pool:
-  name: 'Default'
-  vmImage: 'ankurvmwindows'
+  #name: 'Default'
+  #vmImage: 'ankurvmwindows'
+  vmImage: 'Windows-latest'
 strategy:
   matrix:
     Python39:
