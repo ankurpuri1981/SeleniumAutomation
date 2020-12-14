@@ -15,16 +15,17 @@ strategy:
       python.version: '3.9'
 
 steps:
-  - task: UsePythonVersion@0               
   # For self hosted agents 
-    inputs:
-      versionSpec: '3.9'
-      addToPath: true
-      architecture: 'x64' # Options: x86, x64 (this argument applies only on Windows agents)
+  #- task: UsePythonVersion@0               
+  
+    # inputs:
+    #   versionSpec: '3.9'
+    #   addToPath: true
+    #   architecture: 'x64' # Options: x86, x64 (this argument applies only on Windows agents)
 # For microsoft hosted agents
-# - task: UsePythonVersion@0
-#   inputs:
-#     versionSpec: '$(python.version)'
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
     displayName: 'Use Python $(python.version)'
 
   - script:
