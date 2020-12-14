@@ -41,3 +41,7 @@ steps:
   - script: |
       pytest --html=report.html
     displayName: 'pytest'
+
+  - task: WhiteSource Bolt@20
+    inputs:
+      cwd: 'SeleniumAutomation'
