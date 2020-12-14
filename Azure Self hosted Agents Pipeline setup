@@ -16,3 +16,5 @@ project option in Jenkins
 https://ankurkpuri@dev.azure.com/ankurkpuri/SeleniumAutomation/_git/SeleniumAutomation
 For integrating and taking code from Github, give Github URL
 https://github.com/ankurpuri1981/SeleniumAutomation
+
+To trigger Jenkins build from Azure repo, add Service Hook for Jenkins.
