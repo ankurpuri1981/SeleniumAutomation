@@ -6,3 +6,7 @@ There should be a file named x64.complete in D:\vsts-agent-win-x64-2.179.0\_work
 You should install python in the VM and also add below paths in the path environment variable-
 C:\Users\admin123\AppData\Local\Programs\Python\Python39\
 C:\Users\admin123\AppData\Local\Programs\Python\Python39\Scripts\
+
+Most important is to configure azure pilepine agent, there choose run it as a user, logged into your VM.
+I stil have to check for service run, as it doesn't  recognize pip or python from command prompt as a service user.
+Install chrome and python on the VM.
