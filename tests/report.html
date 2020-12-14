@@ -243,7 +243,7 @@ function filter_table(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 09-Dec-2020 at 00:28:43 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.0</p>
+    <p>Report generated on 14-Dec-2020 at 00:06:45 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -259,8 +259,8 @@ function filter_table(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.8.5</td></tr></table>
     <h2>Summary</h2>
-    <p>5 tests ran in 23.36 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>2 tests ran in 21.47 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">2 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -271,52 +271,23 @@ function filter_table(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Failed</td>
+          <td class="col-result">Passed</td>
           <td class="col-name">test_e2eTC1.py::TestE2E::test_e2e</td>
-          <td class="col-duration">12.91</td>
+          <td class="col-duration">15.94</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div><div><img src="test_e2eTC1.py_TestE2E_test_e2e.png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log">self = &lt;tests.test_e2eTC1.TestE2E object at 0x0000028EC38FF610&gt;<br/><br/>    def test_e2e(self):<br/>    <br/>        homePage = HomePage(self.driver)<br/>        checkoutpage = homePage.shopItems() #create object for checkout from previous page only<br/>        products = checkoutpage.getCardtitle()<br/>        n=0<br/>        for product in products:<br/>            if &#x27;Blackberry&#x27; in product.text:<br/>                checkoutpage.getCardfooter()[n].click()<br/>                prodName = product.text<br/>            n = n + 1<br/>        # Checkout<br/>        confirmation = Confirmation(self.driver)<br/>        confirmation.confirmCheckout().click()<br/>        # check if same product has been added in the cart<br/>        cartprod = confirmation.confirmProduct()<br/>        assert prodName == cartprod.text<br/>        purchase = confirmation.buttonSuccess()<br/>        purchase.findCountry().send_keys(&quot;India&quot;)<br/>        purchase.selectCountry().click() # Select India<br/>        purchase.clickPurchase().click()<br/>        successmsg = self.driver.find_element_by_class_name(&quot;alert-success&quot;).text<br/>&gt;       assert &quot;Successankur    ! Thank you!&quot; in successmsg<br/><span class="error">E       AssertionError: assert &#x27;Successankur    ! Thank you!&#x27; in &#x27;×\nSuccess! Thank you! Your order will be delivered in next few weeks :-).&#x27;</span><br/><br/>test_e2eTC1.py:32: AssertionError<br/></div></td></tr></tbody>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>Blackberry
+×
+Success! Thank you! Your order will be delivered in next few weeks :-).
+<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_e2eTC1.py::TestE2E::test_loggerf</td>
-          <td class="col-duration">0.47</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_homepage.py::Test_HomePageVerify::test_Formsubmission[getData0]</td>
-          <td class="col-duration">7.53</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     test_Formsubmission:test_homepage.py:27 Form submitted by user
-INFO     test_Formsubmission:test_homepage.py:29 The message on the screen is×
-Success! The Form has been submitted successfully!.<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_homepage.py::Test_HomePageVerify::test_Formsubmission[getData1]</td>
-          <td class="col-duration">1.28</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>INFO     test_Formsubmission:test_homepage.py:27 Form submitted by user
-INFO     test_Formsubmission:test_homepage.py:29 The message on the screen is×
-Success! The Form has been submitted successfully!.<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_homepage.py::Test_HomePageVerify::test_loggerf</td>
-          <td class="col-duration">0.38</td>
+          <td class="col-duration">5.25</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
