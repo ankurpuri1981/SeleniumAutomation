@@ -4,7 +4,6 @@ from PageObjects.homepage import HomePage
 from TestData.test_HomePageData import HomePageData
 from utilities.BaseClass import BaseClass
 
-
 class Test_HomePageVerify(BaseClass):
 
     def test_Formsubmission(self, getData):  # Trying to enter data from fixture tuples
@@ -32,7 +31,9 @@ class Test_HomePageVerify(BaseClass):
         self.driver.refresh()  # Refresh the page for clearing fields for next run
 
     # @pytest.fixture(params=[("Ankur","Puri","09/10/1982"),("Ayansh","Puri","26/06/2013")]) #To run test with multiple datasets
-    #os.chdir("..")
+
+    #os.chdir("..")  #This is only needed for local pycharm run, as on azure repo agents, the file is found without
+    # moving to parent folder
     datafile = os.getcwd() + "/TestData/testData.xlsx"
 
     homepagedata = HomePageData(datafile)
