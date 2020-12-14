@@ -15,21 +15,26 @@ strategy:
       python.version: '3.9'
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.9.2' 
+      addToPath: true 
+      architecture: 'x64' # Options: x86, x64 (this argument applies only on Windows agents)
+# - task: UsePythonVersion@0
+#   inputs:
+#     versionSpec: '$(python.version)'
+    displayName: 'Use Python $(python.version)'
 
-- script: |
-    python -m pip install --upgrade pip
-    pip install selenium
-    pip install openpyxl
-    pip install chromedriver
-    pip install pytest pytest-azurepipelines
-    pip install pytest-html
+  - script:
+      python -m pip install --upgrade pip
+      pip install selenium
+      pip install openpyxl
+      pip install chromedriver
+      pip install pytest pytest-azurepipelines
+      pip install pytest-html
     
-  displayName: 'Install dependencies'
+    displayName: 'Install dependencies'
 
-- script: |
-    pytest --html=report.html
-  displayName: 'pytest'
+  - script: |
+      pytest --html=report.html
+    displayName: 'pytest'
