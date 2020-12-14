@@ -23,3 +23,4 @@ options = webdriver.ChromeOptions()
 options.add_argument("headless")
 
 You can install DeepScan plugin in VS Code for static code analysis
+In Pycharm, you can do it via Code > Inspect Code option.
