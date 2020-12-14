@@ -21,7 +21,6 @@ driver = None
 # Include screenshot for failed TC's in the report
 
 #@pytest.mark.hookwrapper
-=======
 
 # def pytest_runtest_makereport(item):
 #     """
