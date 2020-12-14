@@ -20,18 +20,18 @@ steps:
   displayName: 'Use Python $(python.version)'
 
 - script: |
-    sudo apt update
+    #sudo apt update
     sudo apt install software-properties-common
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt install python3.8
-    sudo apt-get install python-pip    
+    sudo apt-get install python-pip
+    pip install selenium
+    pip install pytest pytest-xvfb pytest-azurepipelines
+    pip install openpyxl
+    pip install chromedriver
     
   displayName: 'Install dependencies'
 
 - script: |
-    pip install selenium
-    pip install pytest pytest-xvfb pytest-azurepipelines
-    pip install openpyxl
-    pip install chromedriver-py
-    pytest -v -s
+    pytest
   displayName: 'pytest'
