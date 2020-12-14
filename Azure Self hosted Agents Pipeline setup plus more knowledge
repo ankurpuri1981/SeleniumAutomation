@@ -21,3 +21,5 @@ To trigger Jenkins build from Azure repo, add Service Hook for Jenkins.
 To run selenium python tests in background-
 options = webdriver.ChromeOptions()
 options.add_argument("headless")
+
+You can install DeepScan plugin in VS Code for static code analysis
