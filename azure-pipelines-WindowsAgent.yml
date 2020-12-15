@@ -29,6 +29,13 @@ steps:
       versionSpec: '$(python.version)'
     displayName: 'Use Python $(python.version)'
 
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloud'
+      organization: 'ankurkpuri'
+      scannerMode: 'MSBuild'
+      projectKey: 'SeleniumAutomation'
+
   - script:
       
       python -m pip install --upgrade pip
@@ -44,6 +51,11 @@ steps:
       pytest --html=report.html
     displayName: 'pytest'
 
+  - task: SonarCloudAnalyze@1
   - task: WhiteSource Bolt@20
     inputs:
       cwd: 'SeleniumAutomation'
+  
+  - task: SonarCloudPublish@1
+    inputs:
+      pollingTimeoutSec: '300'
