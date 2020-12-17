@@ -28,7 +28,7 @@ steps:
     inputs:
       versionSpec: '$(python.version)'
     displayName: 'Use Python $(python.version)'
-
+    
   - script:
       python -m pip install --upgrade pip
       pip install selenium
@@ -38,6 +38,49 @@ steps:
       pip install pytest-html
     
     displayName: 'Install dependencies'
+
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloud'
+      organization: 'ankurkpuri'
+      scannerMode: 'CLI'
+      configMode: 'manual'
+      cliProjectKey: 'sonar.SeleniumAutomation'
+      cliProjectName: 'SeleniumAutomation'
+      cliSources: '.'
+      extraProperties: |
+        # Additional properties that will be passed to the scanner, 
+        # Put one key=value per line, example:
+        # sonar.exclusions=**/*.bin
+        sonar.python.coverage.reportPath=*.coverage.xml
+  
+  - bash: 'pytest --junitxml=$(Build.StagingDirectory)/test.xml --cov --cov-report=xml --cov-report=html' 
+    workingDirectory: '.'
+    displayName: 'Run tests with code coverage'
+    continueOnError: true
+ 
+  - task: PublishTestResults@2
+    displayName: 'Publish test result /test.xml'
+    inputs:
+      testResultsFiles: '$(Build.StagingDirectory)/test.xml'
+      testRunTitle: 010
+ 
+  - task: PublishCodeCoverageResults@1
+    displayName: 'Publish code coverage'
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage.xml'
+      reportDirectory: '$(System.DefaultWorkingDirectory)/htmlcov'
+      additionalCodeCoverageFiles: '$(System.DefaultWorkingDirectory)/**'
+ 
+  - task: DeleteFiles@1
+    displayName: 'Delete files from $(System.DefaultWorkingDirectory)/htmlcov'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)/htmlcov'
+      Contents: '**'
+ 
+  - task: SonarCloudAnalyze@1
+    displayName: 'Run Sonarcloud Analysis'
 
   - script: |
       pytest --html=report.html
