@@ -100,7 +100,7 @@ def setup(request):
             # executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\chromedriver\\'
             #                'chromedriver.exe', options=chrome_options)
 
-            driver.implicitly_wait(10)
+            driver.implicitly_wait(15)
             driver.get('https://rahulshettyacademy.com/angularpractice/')
             driver.maximize_window()
             request.cls.driver = driver
@@ -138,7 +138,7 @@ def setup(request):
             chrome_options.add_argument('--disable-dev-shm-usage')  # overcome limited resource problems
             driver = webdriver.Firefox(executable_path='./geckodriver', chrome_options=chrome_options)
             # executable_path='C:\\Users\\153841\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\geckodriver\\geckodriver.exe')
-            driver.implicitly_wait(10)
+            driver.implicitly_wait(15)
             driver.get('https://rahulshettyacademy.com/angularpractice/')
             driver.maximize_window()
             request.cls.driver = driver
