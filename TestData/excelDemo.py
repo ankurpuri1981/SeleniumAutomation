@@ -1,5 +1,5 @@
 import openpyxl
-book = openpyxl.load_workbook("C:\\Users\\153841\\PycharmProjects\\pythonSelFramework\\TestData\\testData.xlsx")
+book = openpyxl.load_workbook("C:\\Users\\153841\\Desktop\\Python\\SeleniumAutomation\\TestData\\testData.xlsx")
 sheet = book.active
 cell = sheet.cell(row=1, column=2)
 datadict = {}

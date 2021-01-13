@@ -1,5 +1,6 @@
 import pytest
 import os
+import PageObjects
 from PageObjects.homepage import HomePage
 from TestData.test_HomePageData import HomePageData
 from utilities.BaseClass import BaseClass
@@ -34,6 +35,7 @@ class Test_HomePageVerify(BaseClass):
 
     #os.chdir("..")  #This is only needed for local pycharm run, as on azure repo agents, the file is found without
     # moving to parent folder
+    print(os.getcwd())
     datafile = os.getcwd() + "/TestData/testData.xlsx"
 
     homepagedata = HomePageData(datafile)
