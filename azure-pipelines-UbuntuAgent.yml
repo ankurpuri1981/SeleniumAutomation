@@ -1,0 +1,37 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+strategy:
+  matrix:
+    Python38:
+      python.version: '3.8'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- script: |
+    #sudo apt update
+    sudo apt install software-properties-common
+    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo apt install python3.8
+    sudo apt-get install python-pip
+    pip install selenium
+    pip install pytest pytest-xvfb pytest-azurepipelines
+    pip install openpyxl
+    pip install chromedriver
+    
+  displayName: 'Install dependencies'
+
+- script: |
+    pytest
+  displayName: 'pytest'

@@ -1,0 +1,70 @@
+The installer exe or zip file should be kept on D:\vsts-agent-win-x64-2.179.0\_work\_tool, if the agent
+is downloaded and configured on D drive.
+There should be a folder structure like below for python version-
+D:\vsts-agent-win-x64-2.179.0\_work\_tool\Python\3.9.0\x64
+There should be a file named x64.complete in D:\vsts-agent-win-x64-2.179.0\_work\_tool\Python\3.9.0\
+You should install python in the VM and also add below paths in the path environment variable-
+C:\Users\admin123\AppData\Local\Programs\Python\Python39\
+C:\Users\admin123\AppData\Local\Programs\Python\Python39\Scripts\
+
+Most important is to configure azure pilepine agent, there choose run it as a user, logged into your VM.
+I stil have to check for service run, as it doesn't  recognize pip or python from command prompt as a service user.
+Install chrome and python on the VM.
+
+For integrating Jenkins with Azure repo, give azure repo URL in Source code repository URL on configure
+project option in Jenkins
+https://ankurkpuri@dev.azure.com/ankurkpuri/SeleniumAutomation/_git/SeleniumAutomation
+For integrating and taking code from Github, give Github URL
+https://github.com/ankurpuri1981/SeleniumAutomation
+
+To trigger Jenkins build from Azure repo, add Service Hook for Jenkins.
+To run selenium python tests in background-
+options = webdriver.ChromeOptions()
+options.add_argument("headless")
+
+You can install DeepScan plugin in VS Code for static code analysis
+In Pycharm, you can do it via Code > Inspect Code option.
+
+Azure Pipelines - Code Coverage
+1. You can use the below YAML configuration as a reference
+trigger:
+- master
+ 
+pool:
+  vmImage: 'windows-latest'
+ 
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+ 
+steps:
+- task: NuGetToolInstaller@1
+ 
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+ 
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+ 
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
+  inputs:
+    command: 'test'
+    projects: '**/*Test.csproj'
+    arguments: '/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
+    publishTestResults: true
+ 
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish Code Coverage Results'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/MyCoverage/coverage.cobertura.xml'
+    failIfCoverageEmpty: true
+
+

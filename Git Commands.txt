@@ -1,0 +1,125 @@
+﻿git config --global user.name "Ankur Puri"
+git config --global user.email "ankur.puri@cognizant.com"
+go to directory --> git init
+
+Stash/staging  - first level of commit, commit is second level of commit - below command is moving files to stash
+git add *
+git status
+
+git commit -m "This is my first commit"
+
+git push only publishes committed files to Github which are committed
+
+Add connection from local Git to Github repository
+git remote add origin https://github.com/ankurpuri1981/repos.git
+
+git push -u origin master
+
+to clone github repository into a new machine or a fresh
+git clone https://github.com/ankurpuri1981/SeleniumAutomation.git
+
+to get latest changes from github use pull command
+git pull origin master
+
+Make branches to clone the code repository and use it for another purpose, say publish to production or another environment or make changes to the framework
+then you merge the sub-branch into the master branch
+
+create a new branch from master named develop
+git checkout -b develop
+
+to check which branch you are on-
+git branch
+
+make changes in the files
+git add *
+git commit -m "Comment"
+
+push to github in develop branch
+git push origin develop
+
+to pull from other machine
+git pull origin develop
+
+switch branches
+git checkout develop
+
+merge develop branch code into master
+git merge develop
+
+push changes from local git master to github master branch
+git push origin master
+
+Resolve merge conflicts
+When there is a change in master branch, and secnd person makes changes to branch with old master code, tries to merge branch into master, it will give merge conflict error. So, you have to make both version of code same in head and master branches. Clean the file after getting merge conflict error.
+
+git diff shows difference between 2 versions of file
+gi log shows all commit history
+
+To go back to previous version of file - git checkout commit number (You can get from git log command)
+
+add another remote repository
+git remote add azurerepo
+
+rename remote repository
+git remote rename azurerepo Ankurrepo
+
+remove remote
+
+show all remote
+git remote -v
+
+git remote remove azurerepo
+
+to show refs-
+git show-ref
+
+If your upstream branch is not already created, you will need to create it by running the “git push” command with the “-u” option for upstream
+created a new branch localgit on local and azure repo
+pulled data from azurerepo 
+git pull azurerepo localgit
+Pushed data back to azurerepo
+git push azurerepo localgit
+So now my github is linked to azurerepo on it's master and develop branch
+my local git master and develop branches are in sync with github
+my local git localgit branch is in sync with azure repo localgit branch
+
+then I checkout to master branch and merged localgit with master
+then pushed master changs to github remote :) All in sync
+
+to exit git bash log console, type q
+
+to show diagramatic commit log
+git log --graph
+
+to push branch changes along with master changes done by someone else, first pull from remote repository into branch locally, and then push back from local 
+
+to resolve conflicts, make both files content same, adding changes in both, master and branch and then commit. Or make master same as branch. then push to azure repo or github repo
+
+squash merge can be used to not include commit history for branches into master branch
+git merge --squash localgit
+
+to push everything to azure
+git push origin -all azurerepo
+
+choose branch policy setting for controlling push and enabling pull requests in azure repo or github. changing again
+
+change in azure repos directly you can pull it in git via pull request
+
+to ignor a file from version control, use
+echo file1.txt >> .gitignore
+
+Git-flow can be used to create mutiple branches for release management
+
+Other git commands
+Other git commands
+Here are some of the other git commands that are important from an exam perspective
+1. Git gc command - This is a command that is used for maintenance purposes. The gc command is a garbage collection command and is used to clean up the git repository.
+If you also use the --aggressive flag along with the command, it will also try to save more disk space after the completion.
+Below is an example output from the command
+
+2. git prune command - This command is used to clean up unreachable or orphaned objects. So you can run the git prune command after the git gc command
+For more information on these commands, you can go to the following links
+https://git-scm.com/docs/git-gc
+https://git-scm.com/docs/git-prune
+
+git fetch is similar to pull but doesn't merge. i.e. it fetches remote updates ( refs and objects ) but your local stays the same (i.e. origin/master gets updated but master stays the same) . git pull pulls down from a remote and instantly merges
