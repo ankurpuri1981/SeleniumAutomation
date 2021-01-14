@@ -43,6 +43,10 @@ git pull origin develop
 switch branches
 git checkout develop
 
+to ignor a file from version control, use
+echo file1.txt >> .gitignore
+
+
 merge develop branch code into master
 git merge develop
 
